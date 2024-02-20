@@ -27,12 +27,12 @@ form {
 
 .inputDiv {
     padding: 0 20px;
-    width: 95.8%;
+    width: 80%;
 }
 label {
 
     text-align: left;
-    width: 72px;
+    width: 14%;
 }
 
 .obliged {
@@ -44,6 +44,23 @@ label {
 }
 input, textarea, button {
     background-color: rgb(245, 245, 220);
+}
+
+textarea {
+    width: 60%;
+    height: 40%;
+}
+
+.messageDiv {
+    width: 100%;  
+    padding: 0 20px;
+}
+
+.messCount {
+    display: inline-block;
+    width: 45px;
+    margin: 0 0 0 65%;
+
 }
 
 h2 {
@@ -80,9 +97,6 @@ h2 {
     margin: 0 auto;
 }
 
-.messageDiv {
-    padding: 0 20px;
-}
 .italic {
     font-style: italic;
 }
@@ -91,10 +105,7 @@ input{
     width: 80%;
 }
 
-textarea {
-    width: 80%;
-    height: 40%;
-}
+
 
 
 body {
@@ -119,26 +130,32 @@ body {
         margin-bottom: 0.1em;
     
     }
-
+    textarea {
+        width: 80%;
+        height: 40%;
+    }
     .mainSection {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-
-*{
+    label {
+        width: 100%;
+    }
+    *{
     padding: 0;
-}
+    }
 
     .messageDiv {
         width: 95.8%;
     }
+
 }
 
 
 @media screen and (min-width: 480px) and (max-width: 960px) {
 
-    #firstName, #lastName, #email, .messageDiv {
+    #firstName, #lastName, #email {
         max-width: 80%;
         display: flex;
         flex-direction: row;
@@ -151,5 +168,9 @@ body {
         align-items: center;
     }
 
+    textarea {
+        width: 80%;
+        height: 40%;
+    }
 
 }

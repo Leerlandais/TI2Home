@@ -31,8 +31,10 @@
                 <label for="emailInput" id="emailLabel">E-mail *</label><input type="text" name="usermail" id="emailInput">
             </div>
             <div class="messageDiv">
-                <label for="message" id="messageLabel">Message *</label>
+                <label for="message" id="messageLabel">Message * </label>
+                
                 <textarea name="message"  id="yourMessageInput" cols="30" rows="10" maxlength="600"></textarea>
+                <p class = "messCount"><span id="messLenCount">0</span>/600</p>
             </div>
             <p class="obliged">(*) Ce champ est obligatoire</p>
             <div class="sendDiv">
