@@ -26,6 +26,8 @@ form {
 }
 
 .inputDiv {
+    margin-top: 1%;
+    margin-bottom: 1%;
     padding: 0 20px;
     width: 80%;
 }
@@ -47,13 +49,14 @@ input, textarea, button {
 }
 
 textarea {
+    margin-left: 3.35%;
     width: 60%;
     height: 40%;
 }
 
 .messageDiv {
-    width: 100%;  
-    padding: 0 20px;
+    width: 107%;  
+    padding: 0 20px;    
 }
 
 .messCount {
@@ -133,6 +136,7 @@ body {
     textarea {
         width: 80%;
         height: 40%;
+        margin-left: 0;
     }
     .mainSection {
         display: flex;
@@ -168,9 +172,18 @@ body {
         align-items: center;
     }
 
+    .messageDiv {
+        padding: 0;
+    }
+
     textarea {
-        width: 80%;
+        margin: 0;
+        width: 60%;
         height: 40%;
+    }
+    
+    #messageLabel {
+        width: 10%;
     }
 
 }

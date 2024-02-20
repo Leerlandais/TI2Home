@@ -14,7 +14,7 @@
     <h1>Livre d'or</h1>
     <div class="mainSection">
 
-    <!--  <p id="screenwidth"></p>  -->
+      <p id="screenwidth"></p>  
         
         <img src="/img/email.png" alt="emailImage" id="emailImg">
         <h3><?=$messageError?></h3>
@@ -47,7 +47,7 @@
 
 </div>
 <div class="prevMessages">
-        <h3 id="prevMessHead">Messages précedents</h3>
+        <h3 id="prevMessHead">Messages précedents   <?php if (isset($pageCount)) echo $pageCount?></h3>
         <?php foreach ($messages as $mess) : ?>
             <div class="messageHolder">
                 <h4><span class="italic"><?=$mess["firstname"]?></span> à envoyé ce message le <?=$mess["datemessage"] ?></h2>
@@ -55,6 +55,7 @@
             </div>
 <?php
     endforeach;
+    var_dump($pageCount); 
     ?>
     </div>
 <script src="js/validation.js"></script> 

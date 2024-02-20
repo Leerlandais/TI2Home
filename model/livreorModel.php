@@ -51,3 +51,11 @@ function addLivreOr(PDO $db,
     return $e->getMessage();
 }
 }
+
+function displayPages(int $pageTotal, int $msgPerPage=10 ): string|null 
+{
+    if($pageTotal === 0) return null;
+    $pageCount = (int) ceil($pageTotal/$msgPerPage);
+    if ($pageCount < 2) return null; // tried using || in above but no, can't test before created
+    return $pageCount;
+}

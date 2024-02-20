@@ -46,7 +46,7 @@ if (isset($_POST['firstname'], $_POST['lastname'], $_POST['usermail'], $_POST['m
  * On récupère les messages du livre d'or
  */
 $messages = getAllLivreOr($db);
-
+$pageCount = //
 // on appelle la fonction de récupération de la DB (getAllLivreOr())
 
 // fermeture de la connexion
