@@ -41,11 +41,11 @@ function addLivreOr(PDO $db,
     $texte = htmlspecialchars(strip_tags(trim($message)),ENT_QUOTES);
 
     // si les données ne sont pas valides, on envoie false
-    if (empty($firstN) || $lastN === false || empty($titre) || empty($texte)) {
+    if (empty($firstN) || empty($lastN) || $email === false || empty($texte)) {
         return false;
     }
     // on prépare la requête
-    $sql = "INSERT INTO comments (`firstname`, `lastname`, `useremail`, `message`) VALUES ('$firstN', '$lastN', '$email', '$texte')";
+    $sql = "INSERT INTO `livreor` (`firstname`, `lastname`, `useremail`, `message`) VALUES ('$firstN', '$lastN', '$email', '$texte')";
     try {
         // on exécute la requête
         $db->exec($sql);
