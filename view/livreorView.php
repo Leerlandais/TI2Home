@@ -13,6 +13,16 @@
 <body>
     <h1>TI2 | Livre d'or</h1>
 
+    <div class="formDiv">
+        <form action="" method="POST">
+            <label for="firstname">prenom</label><input type="text" name="firstname">
+            <label for="lastname">nom</label><input type="text" name="lastname">
+            <label for="usermail">mail</label><input type="email" name="usermail">
+            <label for="message">message</label><textarea name="message" id="" cols="30" rows="10"></textarea>
+            <button type="submit">go</button>
+        </form>
+    </div>
+
     <div class="prevMessages">
         <h3 id="prevMessHead">Messages précedents</h3>
         <?php foreach ($messages as $mess) : ?>
@@ -22,6 +32,7 @@
             </div>
 <?php
     endforeach;
+    
     ?>
     </div>
 <script src="js/validation.js"></script>

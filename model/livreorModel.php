@@ -34,5 +34,25 @@ function addLivreOr(PDO $db,
                     string $message
                     ): bool|string
 {
-    return false;
+ 
+    $firstN = htmlspecialchars(strip_tags(trim($firstname)), ENT_QUOTES);
+    $lastN = htmlspecialchars(strip_tags(trim($lastname)), ENT_QUOTES);
+    $email = filter_var($usermail, FILTER_VALIDATE_EMAIL);
+    $texte = htmlspecialchars(strip_tags(trim($message)),ENT_QUOTES);
+
+    // si les données ne sont pas valides, on envoie false
+    if (empty($firstN) || $lastN === false || empty($titre) || empty($texte)) {
+        return false;
+    }
+    // on prépare la requête
+    $sql = "INSERT INTO comments (`firstname`, `lastname`, `useremail`, `message`) VALUES ('$firstN', '$lastN', '$email', '$texte')";
+    try {
+        // on exécute la requête
+        $db->exec($sql);
+        // si tout s'est bien passé, on renvoie true
+        return true;
+    } catch (Exception $e) {
+        // sinon, on renvoie le message d'erreur
+        return $e->getMessage();
+    }
 }
