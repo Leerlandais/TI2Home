@@ -8,8 +8,8 @@
 */
 // chargement de configuration
 require_once "../config.php";
-require_once "../model/livreorModel.php";
 // chargement du modèle de la table livreor
+require_once "../model/livreorModel.php";
 
 /*
 * Connexion à la base de données en utilisant PDO
@@ -20,37 +20,39 @@ try {
 } catch (Exception $e) {
     die($e->getMessage());
 }
-
+$messageError = "";
 /*
 * Si le formulaire a été soumis
 */
-
 if (isset($_POST['firstname'], $_POST['lastname'], $_POST['usermail'], $_POST['message'])) {
+
+    
     // on appelle la fonction d'insertion dans la DB (addLivreOr())
+    $insert = addLivreOr($db,$_POST['firstname'],$_POST['lastname'],$_POST['usermail'],$_POST['message']);
     
-    $insert = addLivreOr($db, $_POST['firstname'], $_POST['lastname'], $_POST['usermail'], $_POST['message']);
     // si l'insertion a réussi
-    
     if ($insert) {
         // on redirige vers la page actuelle
-        header("Location: ./");
+        header("Location: ./"); 
         exit();
     } else {
-        
         // sinon, on affiche un message d'erreur
-        $errMessage = "Erreur lors de l'insertion";
+        $messageError = "Erreur avec l'insertion";
     }
-}
 
+}
 
 /*
  * On récupère les messages du livre d'or
  */
+$messages = getAllLivreOr($db);
 
 // on appelle la fonction de récupération de la DB (getAllLivreOr())
-$messages = getAllLivreOr($db);
+
 // fermeture de la connexion
-$db = null;
+$db =null;
 // Appel de la vue
 
 include "../view/livreorView.php";
+
+

@@ -11,19 +11,40 @@
     <link rel="stylesheet" href="css/validation.css">
 </head>
 <body>
-    <h1>TI2 | Livre d'or</h1>
+    <h1>Livre d'or</h1>
+    <div class="mainSection">
 
-    <div class="formDiv">
-        <form action="" method="POST">
-            <label for="firstname">prenom</label><input type="text" name="firstname">
-            <label for="lastname">nom</label><input type="text" name="lastname">
-            <label for="usermail">mail</label><input type="email" name="usermail">
-            <label for="message">message</label><textarea name="message" id="" cols="30" rows="10"></textarea>
-            <button type="submit">go</button>
+    <!--  <p id="screenwidth"></p>  -->
+        
+        <img src="/img/email.png" alt="emailImage" id="emailImg">
+        <h3><?=$messageError?></h3>
+    <div class="myFormDiv">
+        <form action="" id="myForm" method="post" onsubmit="validateInputs()">
+            <h2 id="myFormHead">Laissez-nous un message</h2>
+            <div id="firstName" class="inputDiv">
+                <label for="prenomInput" id = "prenomLabel">Prénom *</label><input type="text" name="firstname" id="prenomInput">
+            </div>
+            <div id="lastName" class="inputDiv">
+                <label for="nomInput" id="nomLabel">Nom</label><input type="text" name="lastname" id="nomInput">
+            </div>
+            <div id="email" class="inputDiv">
+                <label for="emailInput" id="emailLabel">E-mail *</label><input type="text" name="usermail" id="emailInput">
+            </div>
+            <div class="messageDiv">
+                <label for="message" id="messageLabel">Message *</label>
+                <textarea name="message"  id="yourMessageInput" cols="30" rows="10" maxlength="600"></textarea>
+            </div>
+            <p class="obliged">(*) Ce champ est obligatoire</p>
+            <div class="sendDiv">
+            <h3><?=$messageError?></h3>
+                <button id="sendButton" class="sendBut">Envoyer</button>
+            </div>
+            </div>
         </form>
     </div>
 
-    <div class="prevMessages">
+</div>
+<div class="prevMessages">
         <h3 id="prevMessHead">Messages précedents</h3>
         <?php foreach ($messages as $mess) : ?>
             <div class="messageHolder">
@@ -32,9 +53,9 @@
             </div>
 <?php
     endforeach;
-    
     ?>
     </div>
-<script src="js/validation.js"></script>
+<script src="js/validation.js"></script> 
 </body>
 </html>
+

@@ -27,6 +27,7 @@ function getAllLivreOr(PDO $db): array
  * @return bool|string
  * Fonction qui insère un message dans la base de données 'ti2web2024' et sa table 'livreor'
  */
+
 function addLivreOr(PDO $db,
                     string $firstname,
                     string $lastname,
@@ -34,25 +35,19 @@ function addLivreOr(PDO $db,
                     string $message
                     ): bool|string
 {
- 
     $firstN = htmlspecialchars(strip_tags(trim($firstname)), ENT_QUOTES);
     $lastN = htmlspecialchars(strip_tags(trim($lastname)), ENT_QUOTES);
     $email = filter_var($usermail, FILTER_VALIDATE_EMAIL);
     $texte = htmlspecialchars(strip_tags(trim($message)),ENT_QUOTES);
-
-    // si les données ne sont pas valides, on envoie false
     if (empty($firstN) || empty($lastN) || $email === false || empty($texte)) {
         return false;
     }
     // on prépare la requête
-    $sql = "INSERT INTO `livreor` (`firstname`, `lastname`, `useremail`, `message`) VALUES ('$firstN', '$lastN', '$email', '$texte')";
+    $sql = "INSERT INTO `livreor` (`firstname`, `lastname`, `usermail`, `message`) VALUES ('$firstN', '$lastN', '$email', '$texte')";
     try {
-        // on exécute la requête
-        $db->exec($sql);
-        // si tout s'est bien passé, on renvoie true
-        return true;
-    } catch (Exception $e) {
-        // sinon, on renvoie le message d'erreur
-        return $e->getMessage();
-    }
+    $db->exec($sql);
+    return true;
+} catch (Exception $e) {
+    return $e->getMessage();
+}
 }
