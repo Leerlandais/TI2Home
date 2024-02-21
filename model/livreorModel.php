@@ -52,4 +52,14 @@ function addLivreOr(PDO $db,
 }
 }
 
+function countMessages($db){
+
+
+
+    $query = $db->query("SELECT COUNT('message') AS nb FROM livreor");
+    $messageCount = $query->fetch();
+    return $messageCount['nb'];
+
+}
+
 
