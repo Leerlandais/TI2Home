@@ -42,7 +42,7 @@ function addLivreOr(PDO $db,
     if (empty($firstN) || empty($lastN) || $email === false || empty($texte)) {
         return false;
     }
-    // on prépare la requête
+
     $sql = "INSERT INTO `livreor` (`firstname`, `lastname`, `usermail`, `message`) VALUES ('$firstN', '$lastN', '$email', '$texte')";
     try {
     $db->exec($sql);
@@ -52,10 +52,4 @@ function addLivreOr(PDO $db,
 }
 }
 
-function displayPages(int $pageTotal, int $msgPerPage=10 ): string|null 
-{
-    if($pageTotal === 0) return null;
-    $pageCount = (int) ceil($pageTotal/$msgPerPage);
-    if ($pageCount < 2) return null; // tried using || in above but no, can't test before created
-    return $pageCount;
-}
+
